@@ -1,6 +1,7 @@
 #if !defined _global_var_h
+#define _global_var_h
+
 #include <Arduino.h>
-#define defined _global_var_h
 
 TaskHandle_t METOR_SERIAL_TASK;
 TaskHandle_t MODBUS_SERIAL_TASK;
