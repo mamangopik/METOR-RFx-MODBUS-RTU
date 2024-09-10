@@ -1,3 +1,6 @@
+#if !defined _metor_data_parser_h_
+#define _metor_data_parser_h_
+
 #include "global_var.h"
 unsigned char find_hex_checksum(char *data_string)
 {
@@ -17,3 +20,5 @@ float string_to_float_data(String measurement_data_string)
     int numeric = measurement_data_string.toInt();
     return (float)numeric / 100.0;
 }
+
+#endif
