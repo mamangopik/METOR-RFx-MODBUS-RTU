@@ -2,7 +2,7 @@
 #define _metor_data_parser_h_
 
 #include "global_var.h"
-unsigned char find_hex_checksum(char *data_string)
+unsigned char find_hex_checksum(String data_string)
 {
     unsigned char checksum = 0;
     int i = 0;
