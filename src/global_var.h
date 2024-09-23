@@ -39,8 +39,9 @@ void metor_serial_handler(void *param);
 void modbus_serial_handler(void *param);
 void writeFloatReg(uint16_t reg, float data);
 void writeIntReg(uint16_t reg, int data);
-short process_data(String data);
+float process_data(String data);
 
-#include "rtos_tasks.h"
+#include "metor_tasks.h"
+#include "modbus_tasks.h"
 #include "metor_data_parser.h"
 #endif
