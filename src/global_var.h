@@ -31,7 +31,7 @@ TaskHandle_t MODBUS_SERIAL_TASK;
 #define RX1 18
 #define TX1 19
 
-int displacement_data = 0;
+float displacement_data[8];
 
 unsigned char find_hex_checksum(String data_string);
 float string_to_float_data(String measurement_data_string);
@@ -39,7 +39,7 @@ void metor_serial_handler(void *param);
 void modbus_serial_handler(void *param);
 void writeFloatReg(uint16_t reg, float data);
 void writeIntReg(uint16_t reg, int data);
-float process_data(String data);
+void process_data(String data);
 
 #include "metor_tasks.h"
 #include "modbus_tasks.h"

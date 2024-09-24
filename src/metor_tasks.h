@@ -23,7 +23,7 @@ void metor_serial_handler(void *param)
                 else
                 {
                     digitalWrite(2, !digitalRead(2));
-                    displacement_data = process_data(measurement_string);
+                    process_data(measurement_string);
                     measurement_string = "";
                 }
             }

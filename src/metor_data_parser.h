@@ -21,8 +21,16 @@ float string_to_float_data(String measurement_data_string)
     return (float)numeric / 100.0;
 }
 
-float process_data(String data)
+void process_data(String data)
 {
+    String measurement_value_string1 = "";
+    String measurement_value_string2 = "";
+    String measurement_value_string3 = "";
+    String measurement_value_string4 = "";
+    String measurement_value_string5 = "";
+    String measurement_value_string6 = "";
+    String measurement_value_string7 = "";
+    String measurement_value_string8 = "";
     String recv_checksum = "";
     String calculated_checksum = String(find_hex_checksum(data), HEX);
     uint16_t measurement_string_len = data.length();
@@ -37,7 +45,6 @@ float process_data(String data)
 
     if (data_valid)
     {
-        String measurement_value_string = "";
         for (uint16_t j = 0; j < measurement_string_len; j++)
         {
             if (data[j] == '|')
@@ -47,36 +54,69 @@ float process_data(String data)
             switch (data[j])
             {
             case 'H':
-                NULL;
+                if (j == 0)
+                    j++;
+                measurement_value_string1 += data[j];
                 break;
             case 'I':
-                NULL;
+                if (j == 0)
+                    j++;
+                measurement_value_string2 += data[j];
                 break;
             case 'J':
-                NULL;
+                if (j == 0)
+                    j++;
+                measurement_value_string3 += data[j];
                 break;
             case 'K':
-                NULL;
+                if (j == 0)
+                    j++;
+                measurement_value_string4 += data[j];
                 break;
             case 'L':
-                NULL;
+                if (j == 0)
+                    j++;
+                measurement_value_string5 += data[j];
                 break;
             case 'M':
-                NULL;
+                if (j == 0)
+                    j++;
+                measurement_value_string6 += data[j];
                 break;
             case 'N':
-                NULL;
+                if (j == 0)
+                    j++;
+                measurement_value_string7 += data[j];
                 break;
             case 'O':
-                NULL;
+                if (j == 0)
+                    j++;
+                measurement_value_string8 += data[j];
                 break;
             default:
-                measurement_value_string += data[j];
+                if (j == 0)
+                    j++;
+                measurement_value_string1 += data[j];
                 break;
             }
         }
-        float ret_data = (float)(measurement_value_string.toInt() / 100.00);
-        return ret_data;
+
+        if (measurement_value_string1.length() > 0)
+            displacement_data[0] = (float)(measurement_value_string1.toInt() / 100.00);
+        if (measurement_value_string2.length() > 0)
+            displacement_data[1] = (float)(measurement_value_string2.toInt() / 100.00);
+        if (measurement_value_string3.length() > 0)
+            displacement_data[2] = (float)(measurement_value_string3.toInt() / 100.00);
+        if (measurement_value_string4.length() > 0)
+            displacement_data[3] = (float)(measurement_value_string4.toInt() / 100.00);
+        if (measurement_value_string5.length() > 0)
+            displacement_data[4] = (float)(measurement_value_string5.toInt() / 100.00);
+        if (measurement_value_string6.length() > 0)
+            displacement_data[5] = (float)(measurement_value_string6.toInt() / 100.00);
+        if (measurement_value_string7.length() > 0)
+            displacement_data[6] = (float)(measurement_value_string7.toInt() / 100.00);
+        if (measurement_value_string8.length() > 0)
+            displacement_data[7] = (float)(measurement_value_string8.toInt() / 100.00);
     }
 }
 
