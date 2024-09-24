@@ -4,7 +4,6 @@
 
 void metor_serial_handler(void *param)
 {
-    pinMode(2, OUTPUT);
     metorSerial.begin(115200, SERIAL_8N1, RX2, TX2, false, 5000); // metor serial
     String measurement_string = "";
     while (1)
